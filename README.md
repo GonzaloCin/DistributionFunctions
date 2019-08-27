@@ -1,89 +1,83 @@
 # DistributionFunctions
+All Matlab functions require Excel files containing the (x, y) coordinates and the image size, in pixels, in the third column.
 
-## Utilizar el Programa Malla para graficar una funcion de densidad de un archivo dado
-
-1. Abrir Matlab y cambiar el directorio a donde tenga los archivos excel y los programas incluidos en esta carpeta
-
-2. Escribir en La Linea de Comando de Matlab la siguiente linea
+## Distribution function of a single file
+1. Open Matlab and change directory to the folder with the Excel file and the files here uploaded.
+2. Write in the Matlab command window the following instruction:
 
 ``` [Matlab]
-M= Malla(archivo,numero,res,ver,guardar,VXY,zoom)
-```
-	 
-Donde M es el nombre del objeto malla
-
-El argumento archivo es el nombre del archivo excel a analizar, se debe escribir entre comillas simples: por ejemplo: 'fibras.xls'
-
-El argumento numero es el tamaño de la malla, se ha utilizado el 11 hasta cambio de planes
-res es un argumento tecnico, 200 funciona bien
-ver y guardar son argumentos de tipo booleano que hacen lo que indica su nombre, note que no puede poner ver como false y guardar como true
-
-El argumento VXY es para usarse cuando se conoce el dominio para graficar la funcion, lo cual se utiliza cuando se combinan dos graficas en una
-para casos del analisis de un solo archivo debe colocarse como 'null'
-
-El argumento zoom es para indicar el la apliacion con la que se tomó la imagen para hacer una correcta conversión de pixeles a micras, puede ser '4x' , '10x', o 'default'
-
-
-En resumen un ejemplo válido de graficacion de un archivo es escribir en la linea de comandos:
-``` [Matlab]
-M=Malla('C5NadhOscuros.xls',11,200,'false','false','null');
+M = Malla(file,size,res,show,save,VXY,zoom)
+``` 
+Where M is the name of the Malla object.
+The argument *file* is the name of the Excel file to analyze, it must be written between apostrophes, e.g., 'fibras.xls'.
+The argument *size* is the cell size, we use 11 to the experiments. 
+*res* is a technical argument, 200 works fine. 
+*show* and *save* are Boolean arguments to show to screen and save the functions, respectively.
+The argument *VXY* can be used when the domain of a function to graph is known, which is used when two distribution functions are combined into a single graph. If it is only to one file, must be written 'null'.
+'zoom' is to indicate the magnification of the objective with which the photograph was taken, in order to convert from pixels to microns. This argument can be '4x', '10x' or 'default'.
+An example of correct instruction in the command window is:
+```Matlab
+M = Malla('C5NadhOscuros.xls',11,200,'false','false','null')
 ```
 
-## Como Combinar dos funciones en una misma grafica
-1. Abrir Matlab y cambiar el directorio a donde tenga los archivos excel y los programas incluidos en esta carpeta
-
-2. Escribir en La Linea de Comando de Matlab la siguiente linea
-
+## Combine two functions in a single graph
+1. Open Matlab and change directory to the folder with the Excel files and file here uploaded.
+2. Write in the Matlab command window the following instruction:
+```Matlab
+h = CombinarFunciones(File1,File2,size,res)
 ```
-	h = CombinarFunciones( Archivo1, Archivo2,num,res )
+Where "File1" and "File2" are the names of the first and second Excel files to be analyzed.
+The argument "size" is the cell size, we have been using 11.
+"res" is a technical argument, 200 works fine.
+
+An example of correct instruction in the command window is:
 ```
-Donde Archivo1 es el nombre del primer archivo
-Analogamente Archivo2
-El argumento num es el tamaño de la malla, se ha utilizado el 11 hasta cambio de planes
-res es un argumento tecnico, 200 funciona bien
-
-
-Un ejemplo es el siguiente
+h = CombinarFunciones('219mPcATP-oxidativas.xls','219mPcATP-glucoliticas.xls',11,200);
 ```
-h=CombinarFunciones('219mPcATP-oxidativas.xls','219mPcATP-glucoliticas.xls',11,200);
+This method saves for default a .fig file, which can be open in Matlab to edit the image, and a .png image.
+
+
+## Combine three function in a single graph
+1.	Open Matlab and change directory to the folder with the Excel files and file *CombinarFuncionesATP.m* here uploaded.
+2.	Write in the Matlab command window the following instruction:
+```Matlab
+h = CombinarFuncionesATP(Archivo1,Archivo2,Archivo3,num,res,zoom)
+```
+Where *Archivo1*, *Archivo2* and *Archivo3* are the names of the first, second, and third Excel files to be analyzed.
+The argument *num* is the cell size, we have been using 11.
+*res* is a technical argument, 200 works fine, and *zoom* is to indicate the magnification of the objective with which the photograph was taken, in order to convert from pixels to microns. This argument can be '4x', '10x' or 'default'.
+
+An example of correct instruction in the command window is:
+```Matlab
+h = CombinarFuncionesATP( 'ATP_F.xlsx', 'ATP_I.xlsx', 'ATP_S.xlsx', 11, 200, '10x')
 ```
 
-Este método guardara por defecto un archivo .fig que es modificable en matlab y otra imagen .png
-
-
-
-## Como Generar las imagenes .tiff de una base de coordenadas
-1. Abrir Matlab y cambiar el directorio a donde tenga los archivos excel y los programas incluidos en esta carpeta
-
-2. Escribir en la linea de comandos
-```
+## Create binary images from a coordinates database
+1.	Open Matlab and change directory to the folder with the Excel files and file *Generar_imagenes.m* here uploaded.
+2.	Write in the Matlab command window the following instruction:
+```Matlab
 Generar_imagenes(archivo,tam)
 ```
+Where *archivo* is the name of the Excel file containing the (x,y) coordinates. This file must contain the image size, in pixels, in the third column.
+*tam* is the dot size to graph in the image.
 
-Donde archivo es el mnombre del archivo que contiene la información a graficar, se debe escribir entre comillas simples y con extension, considerando que tambien debe tener las dimensiones de la imagen en la tercera columna
-tam es el tamaño de los puntos a graficar
-
-Un ejemplo es el siguiente:
+An example of correct instruction in the command window is:
+```Matlab
+Generar_imagenes('219mPcATP-oxidativas.xls',5)
 ```
-Generar_imagenes('219mPcATP-oxidativas.xls',5) 
-```
 
-## Como Generar las imagenes .tiff de una base de coordenadas en un solo archivo en distintas 
 
-1. Abrir Matlab y cambiar el directorio a donde tenga los archivos excel y los programas incluidos en esta carpeta
-
-2. Escribir en la linea de comandos
-
-```
+## Generate binary images from coordinates databases from a single file
+1.	Open Matlab and change directory to the folder with the Excel files and file here uploaded.
+2.	Write in the Matlab command window the following instruction:
+```Matlab
 Generar_imagenesM(archivo,tam,hoja)
 ```
+Where *archivo* is the name of the Excel file containing the (x,y) coordinates.
+*tam* is the dot size to graph in the image and *hoja* is the name of the sheet in the Excel file.
+Each sheet must contain the image size, in pixels, in the third column.
 
-
-Donde archivo es el mnombre del archivo que contiene la información a graficar, se debe escribir entre comillas simples y con extension
-tam es el tamaño de los puntos a graficar
-hoja es el nombre de la hoja, tambien va entre comillas, considerando que tambien debe tener las dimensiones de la imagen en la tercera columna
-
-Un ejemplo es el siguiente:
-```
-Generar_imagenes('219mPcATP.xls',5,'Oxidativas') 
+An example of correct instruction in the command window is:
+```Matlab
+Generar_imagenesM('219mPcATP.xls',5,'Oxidativas'
 ```
