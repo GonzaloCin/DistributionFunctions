@@ -1,6 +1,6 @@
 function [ ] = Generar_imagenesColor(archivo,tam,color)
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%GENERAR_IMAGENES Dado un archivo de excel, el tamaño de los puntos y el 
+%color genera grafica y la almacena
     Nombre=strrep(archivo,'.xls','');
     Datos=xlsread(archivo);
     
@@ -24,5 +24,6 @@ function [ ] = Generar_imagenesColor(archivo,tam,color)
     set(gca,'pos',[0 0 1 1])
 
     print(j,strcat(Nombre,'Reconstruida.tif'),'-r150','-dtiff')
-    saveas(j,strcat(Nombre,'Reconstruida.fig'),'fig');           
+    saveas(j,strcat(Nombre,'Reconstruida.fig'),'fig');
+    
 end

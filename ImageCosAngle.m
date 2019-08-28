@@ -1,6 +1,6 @@
 function [ cosAngle ] = ImageCosAngle( DF1,DF2,MCOV )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+%ImageCosAngle Calcula el coseno del angulo de dos distribuciones 
+%   De acuerdo a Cauchy-Schwarz segun su producto interno y sus normas
     nume=0;
     Ncel=DF1.Nceldas;
     for i=1:Ncel

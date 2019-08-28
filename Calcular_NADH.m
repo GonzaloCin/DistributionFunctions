@@ -3,5 +3,5 @@
     Oxi=DatosFibra(strcat('NADH_O.xlsx'),11);
     COV=MCOV({Oxi,Glu});
     
-    fprintf( strcat('\n\tDGluOxi','=%f \t') , ImageDistance(Glu,Oxi,COV) );
-    fprintf( strcat('\tAnGluOxi','=%f\n') , ImageDegAngle(Glu,Oxi,COV) );
+    fprintf( '\n\tDistGluOxi = %f \t' , ImageDistance(Glu,Oxi,COV) );
+    fprintf( '\tAngleGluOxi = %f \n'  , ImageDegAngle(Glu,Oxi,COV) );

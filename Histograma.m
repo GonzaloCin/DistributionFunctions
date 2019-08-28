@@ -16,7 +16,6 @@ function Histograma(Nombre,N)
        mb(p,q)=mb(p,q)+1;
     end
 
-
     figure
     h=bar3(mb);
     title(strcat(strrep(Nombre,'.xls',''),sprintf('(%i X %i)',N,N)))

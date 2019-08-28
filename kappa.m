@@ -1,4 +1,7 @@
 function [ ka ] = kappa(Dat1,Dat2,CovCel)
+%KAPPA Calcula la funcion kappa
+% Es una funcion de nucleo y es una metrica para los datos en el plano,
+% segun una matriz de covarianza
 
     if (Dat1.Media(1)==0 &&  Dat1.Media(2)==0) || (Dat2.Media(1)==0 &&  Dat2.Media(2)==0)
         ka=0;

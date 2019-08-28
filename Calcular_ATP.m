@@ -1,15 +1,15 @@
 
-    Len=DatosFibra(strcat('ATP_l.xlsx'),11);
-    Int=DatosFibra(strcat('ATP_i.xlsx'),11);
-    Rap=DatosFibra(strcat('ATP_r.xlsx'),11);
+    Len=DatosFibra(strcat('ATP_S.xlsx'),11);
+    Int=DatosFibra(strcat('ATP_I.xlsx'),11);
+    Rap=DatosFibra(strcat('ATP_F.xlsx'),11);
     COV=MCOV({Len,Int,Rap});
     
-    fprintf( strcat('\n\tDLentInt','=%f \t') , ImageDistance(Len,Int,COV) );
-    fprintf( strcat('\tAnLenInt','=%f\n') , ImageDegAngle(Len,Int,COV) );
+    fprintf( '\n\tDistLentInt = %f \t' , ImageDistance(Len,Int,COV) );
+    fprintf( '\tAngleLenInt = %f \n'   , ImageDegAngle(Len,Int,COV) );
     
-     fprintf( strcat('\tDLenRap','=%f\t') , ImageDistance(Len,Rap,COV) );
-    fprintf( strcat('\tAnLenRap','=%f\n') , ImageDegAngle(Len,Rap,COV) );
+    fprintf( '\tDistLenRap  = %f \t'   , ImageDistance(Len,Rap,COV) );
+    fprintf( '\tAngleLenRap = %f \n'   , ImageDegAngle(Len,Rap,COV) );
        
-     fprintf( strcat('\tDRapInt','=%f\t') , ImageDistance(Rap,Int,COV) );
-     fprintf( strcat('\tAnRapInt','=%f\n') , ImageDegAngle(Rap,Int,COV) );
+    fprintf( '\tDistRapInt  = %f \t' , ImageDistance(Rap,Int,COV) );
+    fprintf( '\tAngleRapInt = %f \n' , ImageDegAngle(Rap,Int,COV) );
     

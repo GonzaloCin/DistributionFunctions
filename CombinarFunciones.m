@@ -1,10 +1,13 @@
 function [ h ] = CombinarFunciones( Archivo1, Archivo2,num,res )
-    D1=xlsread(Archivo1);%Leer el Archivo 1 y guardarlo en una matriz de n*2
+    %Leer el Archivo 1 y guardarlo en una matriz de n*2
+    D1=xlsread(Archivo1);
     D2=xlsread(Archivo2);
-
-    MinD1=min(D1);%%Vector de dos entradas con las coordenadas minimas x y y del archivo d1
-    MaxD1=max(D1);%%Analogo
-    MinD2=min(D2);%%Vector de dos entradas con las coordenadas minimas x y y del archivo d1
+	
+	%%Vector de dos entradas con las coordenadas minimas x y y del archivo d1
+    MinD1=min(D1);
+    MaxD1=max(D1);
+    %%Vector de dos entradas con las coordenadas minimas x y y del archivo d2
+    MinD2=min(D2);
     MaxD2=max(D2);
 
     xmin=min(MinD1(1),MinD2(1));

@@ -56,9 +56,9 @@ function [ h ] = CombinarFuncionesCOX( Archivo1, Archivo2,num,res,zoom)%%Hacer C
     xlabel('X Micras'),ylabel('Y Micras')
     set(get(get(bg(1),'Annotation'),'LegendInformation'),'IconDisplayStyle','off')
     h = legend(strrep(Archivo1,'.xlsx',''),strrep(Archivo2,'.xlsx',''),strcat('Centroide',' ',strrep(Archivo1,'.xlsx','')) ,strcat('Centroide',' ',strrep(Archivo2,'.xlsx','')),'Location','NorthEast');
+    %surf(X,Y,0.3*ones(res,res),'FaceColor',[1 1 1],'LineWidth',0.01);%%Print white background
     set(h,'Interpreter','none');
     set(h,'FontSize',6);
-
 
     h=gcf;
     title(strcat(strrep(Archivo1,'.xlsx',''),'y',strrep(Archivo2,'.xlsx',''),sprintf('(%i X %i)',num,num),'3D'));
@@ -68,5 +68,6 @@ function [ h ] = CombinarFuncionesCOX( Archivo1, Archivo2,num,res,zoom)%%Hacer C
     view(-45,76);
     saveas(h,strcat(strrep(Archivo1,'.xlsx',''),'y',strrep(Archivo2,'.xlsx',''),sprintf('(%i X %i)',num,num),'3D','.fig'),'fig');
     print(strcat(strrep(Archivo1,'.xlsx',''),'y',strrep(Archivo2,'.xlsx',''),sprintf('(%i X %i)',num,num),'3D','.png'),'-dpng','-r600');
+
 end
 

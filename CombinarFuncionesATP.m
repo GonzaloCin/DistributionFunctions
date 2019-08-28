@@ -1,5 +1,6 @@
 function [ h ] = CombinarFuncionesATP( Archivo1, Archivo2,Archivo3,num,res,zoom)
-    D1=xlsread(Archivo1);%Leer el Archivo y guardarlo en una matriz de n*2
+    %Leer el Archivo 1 y guardarlo en una matriz de n*2
+    D1=xlsread(Archivo1);
     D2=xlsread(Archivo2);
     D3=xlsread(Archivo3);
 
@@ -67,6 +68,7 @@ function [ h ] = CombinarFuncionesATP( Archivo1, Archivo2,Archivo3,num,res,zoom)
     xlabel('X Micras'),ylabel('Y Micras')
     set(get(get(bg(1),'Annotation'),'LegendInformation'),'IconDisplayStyle','off')
     h = legend(strrep(Archivo1,'.xlsx',''),strrep(Archivo2,'.xlsx',''),strrep(Archivo3,'.xlsx',''),strcat('Centroid',' ',strrep(Archivo1,'.xlsx','')) ,strcat('Centroid',' ',strrep(Archivo2,'.xlsx','')) ,strcat('Centroid',' ',strrep(Archivo3,'.xlsx','')),'Location','NorthEast');
+    surf(X,Y,0.3*ones(res,res),'FaceColor',[1 1 1],'LineWidth',0.01);%%Print withe background
     set(h,'Interpreter','none');
     set(h,'FontSize',6);
 
@@ -78,5 +80,6 @@ function [ h ] = CombinarFuncionesATP( Archivo1, Archivo2,Archivo3,num,res,zoom)
     view(-45,76);
     saveas(h,strcat(strrep(Archivo1,'.xlsx',''),',',strrep(Archivo2,'.xlsx',''),'and',strrep(Archivo3,'.xlsx',''),sprintf('(%i X %i)',num,num),'3D','.fig'),'fig');
     print(strcat(strrep(Archivo1,'.xlsx',''),',',strrep(Archivo2,'.xlsx',''),'and',strrep(Archivo3,'.xlsx',''),sprintf('(%i X %i)',num,num),'3D','.png'),'-dpng','-r600');
+
 end
 
