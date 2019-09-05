@@ -4,10 +4,10 @@ All Matlab functions require Excel files containing the (x, y) coordinates and t
 ## Distribution function of a single file
 1. Open Matlab and change directory to the folder with the Excel file and the files here uploaded.
 2. Write in the Matlab command window the following instruction:
-
 ``` [Matlab]
 M = Malla(file,size,res,show,save,VXY,zoom)
 ``` 
+
 Where M is the name of the Malla object.
 The argument *file* is the name of the Excel file to analyze, it must be written between apostrophes, e.g., 'fibras.xls'.
 The argument *size* is the cell size, we use 11 to the experiments. 
@@ -26,12 +26,12 @@ M = Malla('C5NadhOscuros.xls',11,200,'false','false','null')
 ```Matlab
 h = CombinarFunciones(File1,File2,size,res)
 ```
-Where "File1" and "File2" are the names of the first and second Excel files to be analyzed.
-The argument "size" is the cell size, we have been using 11.
-"res" is a technical argument, 200 works fine.
+Where *File1* and *File2* are the names of the first and second Excel files to be analyzed.
+The argument *size* is the cell size, we have been using 11.
+*res* is a technical argument, 200 works fine.
 
 An example of correct instruction in the command window is:
-```
+```Matlab
 h = CombinarFunciones('219mPcATP-oxidativas.xls','219mPcATP-glucoliticas.xls',11,200);
 ```
 This method saves for default a .fig file, which can be open in Matlab to edit the image, and a .png image.
@@ -49,7 +49,7 @@ The argument *num* is the cell size, we have been using 11.
 
 An example of correct instruction in the command window is:
 ```Matlab
-h = CombinarFuncionesATP( 'ATP_F.xlsx', 'ATP_I.xlsx', 'ATP_S.xlsx', 11, 200, '10x')
+h = CombinarFuncionesATP('ATP_F.xlsx', 'ATP_I.xlsx', 'ATP_S.xlsx', 11, 200, '10x')
 ```
 
 ## Create binary images from a coordinates database
@@ -80,4 +80,32 @@ Each sheet must contain the image size, in pixels, in the third column.
 An example of correct instruction in the command window is:
 ```Matlab
 Generar_imagenesM('219mPcATP.xls',5,'Oxidativas'
+```
+
+
+## Dissimilarity quantifiers for two functions
+1.	Open Matlab and change directory to the folder with the Excel files and file here uploaded.
+2.	Write in the Matlab command window the following instruction:
+```Matlab
+Quantifiers_NADH(File1 , File2)
+```
+
+Where *File1* and *File2* are the Excel files containing the (x,y) coordinates of glycolytic and oxidative fibers, respectively.
+
+An example of correct instruction is:
+```Matlab
+Quantifiers_NADH('NADH_G.xlsx','NADH_O.xlsx')
+```
+
+## Dissimilarity quantifiers for three functions
+1.	Open Matlab and change directory to the folder with the Excel files and file here uploaded.
+2.	Write in the Matlab command window the following instruction:
+```Matlab
+Quantifiers_ATP(File1 , File2 , File3)
+```
+Where *File1*, *File2*, and *File3* are the Excel files containing the (x, y) coordinates of fast, intermediate, and slow fibers, respectively.
+
+A correct instruction in the command windows is:
+```Matlab
+Quantifiers_ATP('ATP_F.xlsx','ATP_I.xlsx','ATP_S.xlsx')
 ```

@@ -5,9 +5,9 @@ function [Covarianza ] = MCOV( ArrObj )
 %   dos distribuciones
 
     [~,R]=size(ArrObj);
-    fprintf('\nCantidad de imagenes: %i',R);
+    %fprintf('\nCantidad de imagenes: %i',R);
     Ncel=ArrObj{1,1}.Nceldas;
-    fprintf('\n Cantidad de celdas: %i\n',Ncel);
+    %fprintf('\n Cantidad de celdas: %i\n',Ncel);
     TX=ArrObj{1,1}.TamX;
     TY=ArrObj{1,1}.TamY;
     MCDatos=cell(Ncel);
