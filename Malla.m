@@ -126,7 +126,8 @@ classdef Malla
             
             if ver
             	%% Dibujar funcion principal
-                figure,surf(M.DomX,M.DomY,M.FuncionT), shading flat ,title(strcat(M.NombreArchivo,sprintf('(%i X %i)',numero,numero)),'FontSize',12),xlabel('x'),ylabel('y'),colorbar,axis([M.Xmin M.Xmax M.Ymin M.Ymax]);hold on;
+                set(0,'DefaultTextInterpreter','none')
+                figure,surf(M.DomX,M.DomY,M.FuncionT), shading flat ,title(strcat(strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero)),'FontSize',12),xlabel('x'),ylabel('y'),colorbar,axis([M.Xmin M.Xmax M.Ymin M.Ymax]);hold on;
                 surf(M.DomX,M.DomY,0.3*ones(res,res),'FaceColor',[1 1 1],'LineStyle','none');
                 	%% Configuracion
                     set(gca, 'YDir', 'reverse');  %Revertir el eje Y
@@ -139,7 +140,7 @@ classdef Malla
                     xlabel('X Micras'),ylabel('Y Micras')
 
                  if(guardar)
-                    print(strcat(strrep(M.NombreArchivo,'.xls',''),sprintf('(%i X %i)',numero,numero),'3DArriba','.png'),'-dpng','-r300');
+                    print(strcat(strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero),'3DArriba','.png'),'-dpng','-r300');
                  end
 
                 view(-45,70);
@@ -152,11 +153,11 @@ classdef Malla
                 view(-45,38);
                 if(guardar)
                 	%% Guardar mas girada
-                	print(strcat(strrep(M.NombreArchivo,'.xls',''),sprintf('(%i X %i)',numero,numero),'3D2','.png'),'-dpng','-r300');
+                	print(strcat(strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero),'3D2','.png'),'-dpng','-r300');
                 end
                 
                 %% Dibujar contornos
-                figure,contour(M.DomX,M.DomY,M.FuncionT),title(strcat('Nivel-',M.NombreArchivo,sprintf('(%i X %i)',numero,numero)),'FontSize',12), xlabel('x'),ylabel('y'),colorbar,axis([M.Xmin M.Xmax M.Ymin M.Ymax]);hold on;
+                figure,contour(M.DomX,M.DomY,M.FuncionT),title(strcat('Nivel-',strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero)),'FontSize',12), xlabel('x'),ylabel('y'),colorbar,axis([M.Xmin M.Xmax M.Ymin M.Ymax]);hold on;
                 	%% Configurar
                 	set(gca, 'YDir', 'reverse');   %Revertir el eje Y
                     plot(M.CentroidesAltos(:,1),M.CentroidesAltos(:,2),'g.','MarkerSize',20);
@@ -167,7 +168,7 @@ classdef Malla
                 	xlabel('X Micras'),ylabel('Y Micras')
 
                 if(guardar)
-                	print(strcat(strrep(M.NombreArchivo,'.xls',''),sprintf('(%i X %i)',numero,numero),'Contour','.png'),'-dpng','-r300');
+                	print(strcat(strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero),'Contour','.png'),'-dpng','-r300');
                 end
                 
                 %% Creacion de imagen binaria de coordenadas
@@ -188,7 +189,7 @@ classdef Malla
                 end
                 
                 %% Dibujar histograma de frecuencias de conteos
-                figure, bar(0:M.Cmax,M.Histograma),title(strcat('Histograma-',M.NombreArchivo,sprintf('(%i X %i)',numero,numero)),'FontSize',12), xlabel('Cantidad de Fibras'),ylabel('Fecuencia')
+                figure, bar(0:M.Cmax,M.Histograma),title(strcat('Histograma-',strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero)),'FontSize',12), xlabel('Cantidad de Fibras'),ylabel('Fecuencia')
                 if(guardar)
                     print(strcat(strrep(M.NombreArchivo,'.xlsx',''),sprintf('(%i X %i)',numero,numero),'-Histograma.png'),'-dpng','-r300');
                 end

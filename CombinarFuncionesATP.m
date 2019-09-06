@@ -52,12 +52,13 @@ function [ h ] = CombinarFuncionesATP( Archivo1, Archivo2,Archivo3,num,res,zoom)
     FM1=(((F1>F2).*F1)>F3).*F1;
     FM2=(((F2>F1).*F2)>F3).*F2;
     FM3=(((F3>F1).*F3)>F2).*F3;
+    set(0,'DefaultTextInterpreter','none')
     figure
     surf(X,Y,40*FM1,'FaceColor',[0 0 255]/255,'LineWidth',0.01);axis([xmin xmax ymin ymax]);
     hold on;
     surf(X,Y,8*FM2,'FaceColor',[255 0 0]/255,'LineWidth',0.01);
     surf(X,Y,FM3,'FaceColor',[0 255 0]/255,'LineWidth',0.01);
-    bg = surf(X,Y,0.3*ones(res,res),'FaceColor',[1 1 1],'LineWidth',0.01);
+    bg = surf(X,Y,0.3*ones(res,res),'FaceColor',[1 1 1],'LineWidth',0.01); %%Print withe background
 
     plot3(F1c(1),F1c(2),40*FTCmax,'Color','r','Marker','o','LineWidth',3,'LineStyle','none');
     plot3(F2c(1),F2c(2),40*FTCmax,'Color','g','Marker','o','LineWidth',3,'LineStyle','none');
@@ -68,7 +69,6 @@ function [ h ] = CombinarFuncionesATP( Archivo1, Archivo2,Archivo3,num,res,zoom)
     xlabel('X Micras'),ylabel('Y Micras')
     set(get(get(bg(1),'Annotation'),'LegendInformation'),'IconDisplayStyle','off')
     h = legend(strrep(Archivo1,'.xlsx',''),strrep(Archivo2,'.xlsx',''),strrep(Archivo3,'.xlsx',''),strcat('Centroid',' ',strrep(Archivo1,'.xlsx','')) ,strcat('Centroid',' ',strrep(Archivo2,'.xlsx','')) ,strcat('Centroid',' ',strrep(Archivo3,'.xlsx','')),'Location','NorthEast');
-    surf(X,Y,0.3*ones(res,res),'FaceColor',[1 1 1],'LineWidth',0.01);%%Print withe background
     set(h,'Interpreter','none');
     set(h,'FontSize',6);
 
