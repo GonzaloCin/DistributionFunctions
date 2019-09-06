@@ -1,6 +1,12 @@
 # DistributionFunctions
 All Matlab functions require Excel files containing the (x, y) coordinates and the image size, in pixels, in the third column.
 
+![file](pictures/image1.PNG)
+
+In Matlab change directory to the folder with the Excel files and scripts in this repository.
+
+![path](pictures/image2.png)
+
 ## Distribution function of a single file
 1. Open Matlab and change directory to the folder with the Excel file and the files here uploaded.
 2. Write in the Matlab command window the following instruction:
@@ -19,6 +25,7 @@ An example of correct instruction in the command window is:
 ```Matlab
 M = Malla('C5NadhOscuros.xls',11,200,'false','false','null')
 ```
+![malla](pictures/image3to8.png)
 
 ## Combine two functions in a single graph
 1. Open Matlab and change directory to the folder with the Excel files and file here uploaded.
@@ -36,6 +43,8 @@ h = CombinarFunciones('219mPcATP-oxidativas.xls','219mPcATP-glucoliticas.xls',11
 ```
 This method saves for default a .fig file, which can be open in Matlab to edit the image, and a .png image.
 
+![ctwo](pictures/image9.png)
+
 
 ## Combine three function in a single graph
 1.	Open Matlab and change directory to the folder with the Excel files and file *CombinarFuncionesATP.m* here uploaded.
@@ -51,6 +60,7 @@ An example of correct instruction in the command window is:
 ```Matlab
 h = CombinarFuncionesATP('ATP_F.xlsx', 'ATP_I.xlsx', 'ATP_S.xlsx', 11, 200, '10x')
 ```
+![cthree](pictures/image10.png)
 
 ## Create binary images from a coordinates database
 1.	Open Matlab and change directory to the folder with the Excel files and file *Generar_imagenes.m* here uploaded.
@@ -66,6 +76,7 @@ An example of correct instruction in the command window is:
 Generar_imagenes('219mPcATP-oxidativas.xls',5)
 ```
 
+![bin](pictures/image11.tiff)
 
 ## Generate binary images from coordinates databases from a single file
 1.	Open Matlab and change directory to the folder with the Excel files and file here uploaded.
@@ -97,6 +108,9 @@ An example of correct instruction is:
 Quantifiers_NADH('NADH_G.xlsx','NADH_O.xlsx')
 ```
 
+![dtwo](pictures/image12.png)
+
+
 ## Dissimilarity quantifiers for three functions
 1.	Open Matlab and change directory to the folder with the Excel files and file here uploaded.
 2.	Write in the Matlab command window the following instruction:
@@ -109,3 +123,5 @@ A correct instruction in the command windows is:
 ```Matlab
 Quantifiers_ATP('ATP_F.xlsx','ATP_I.xlsx','ATP_S.xlsx')
 ```
+
+![dthree](pictures/image13.png)
