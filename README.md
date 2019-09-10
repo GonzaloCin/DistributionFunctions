@@ -24,7 +24,7 @@ M = Malla('C5NadhOscuros.xls',11,200,'false','false','null')
 1. Open Matlab and change directory to the folder with the Excel files and file here uploaded.
 2. Write in the Matlab command window the following instruction:
 ```Matlab
-h = CombinarFunciones(File1,File2,size,res)
+h = CombinarFuncionesNADH(File1,File2,size,res)
 ```
 Where *File1* and *File2* are the names of the first and second Excel files to be analyzed.
 The argument *size* is the cell size, we have been using 11.
@@ -32,7 +32,7 @@ The argument *size* is the cell size, we have been using 11.
 
 An example of correct instruction in the command window is:
 ```Matlab
-h = CombinarFunciones('219mPcATP-oxidativas.xls','219mPcATP-glucoliticas.xls',11,200);
+h = CombinarFuncionesNADH('219mPcATP-oxidativas.xls','219mPcATP-glucoliticas.xls',11,200);
 ```
 This method saves for default a .fig file, which can be open in Matlab to edit the image, and a .png image.
 
