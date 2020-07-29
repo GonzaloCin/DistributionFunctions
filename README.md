@@ -76,7 +76,7 @@ An example of correct instruction in the command window is:
 Generar_imagenes('219mPcATP-oxidativas.xls',5)
 ```
 
-![bin](pictures/image11.tiff)
+![bin](pictures/image11.png)
 
 ## Generate binary images from coordinates databases from a single file
 1.	Open Matlab and change directory to the folder with the Excel files and file here uploaded.
